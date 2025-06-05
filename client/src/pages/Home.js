@@ -146,7 +146,7 @@ export default function Home() {
                   animation: "fadeInUp 1s ease-out",
                 }}
               >
-                Welcome to IT Computer Institute
+                Welcome to SKY CODING INSTITUTE
               </h1>
 
               <p
@@ -161,6 +161,8 @@ export default function Home() {
                   animation: "fadeInUp 1s ease-out 0.3s both",
                 }}
               >
+                Gateway to Innovation
+                <br></br>
                 Empowering students with knowledge, skills, and confidence to achieve academic and career success.
               </p>
 

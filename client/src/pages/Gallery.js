@@ -39,54 +39,27 @@ export default function Gallery() {
   }, []);
 
   const images = [
+    
     { 
-      src: "https://via.placeholder.com/400x300/1e3c72/ffffff?text=Modern+Classroom", 
-      alt: "Modern Computer Lab", 
-      category: "facilities",
-      description: "State-of-the-art computer laboratory with latest equipment"
-    },
-    { 
-      src: "https://via.placeholder.com/400x300/28a745/ffffff?text=Students+Learning", 
+      src: "image1.jpg", 
       alt: "Students in Action", 
       category: "students",
       description: "Our dedicated students working on programming projects"
     },
     { 
-      src: "https://via.placeholder.com/400x300/ffd700/000000?text=Workshop+Session", 
+      src: "image2.jpg", 
       alt: "Technical Workshop", 
       category: "events",
       description: "Hands-on workshop on web development technologies"
     },
+  
     { 
-      src: "https://via.placeholder.com/400x300/6f42c1/ffffff?text=Certification+Day", 
-      alt: "Certificate Distribution", 
-      category: "events",
-      description: "Annual certification ceremony for course completers"
-    },
-    { 
-      src: "https://via.placeholder.com/400x300/dc3545/ffffff?text=Expert+Faculty", 
-      alt: "Expert Instructor", 
-      category: "faculty",
-      description: "Our experienced faculty members guiding students"
-    },
-    { 
-      src: "https://via.placeholder.com/400x300/17a2b8/ffffff?text=Project+Demo", 
+      src: "image3.jpg", 
       alt: "Project Presentation", 
       category: "students",
-      description: "Students presenting their final year projects"
+      description: "Students presenting their projects"
     },
-    { 
-      src: "https://via.placeholder.com/400x300/fd7e14/ffffff?text=Lab+Equipment", 
-      alt: "Advanced Lab Setup", 
-      category: "facilities",
-      description: "Advanced networking and hardware laboratory"
-    },
-    { 
-      src: "https://via.placeholder.com/400x300/e83e8c/ffffff?text=Industry+Visit", 
-      alt: "Industry Visit", 
-      category: "events",
-      description: "Educational visit to leading tech companies"
-    },
+  
   ];
 
   const categories = [

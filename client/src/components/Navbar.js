@@ -61,7 +61,7 @@ function Navbar() {
               backgroundClip: 'text'
             }}
           >
-            IT COMPUTER INSTITUTE
+            SKY CODING INSTITUTE
           </h1>
           <p 
             className="mb-0 mt-1"
@@ -72,17 +72,17 @@ function Navbar() {
               letterSpacing: '1px'
             }}
           >
-            Excellence in Technical Education
+            Gateway to Innovation
           </p>
         </div>
 
         {/* Right: Contact Info */}
         <div className="d-none d-lg-block text-end">
           <div style={{ color: '#ffd700', fontSize: '14px', fontWeight: '600' }}>
-            <i className="bi bi-telephone-fill me-2"></i>+91-XXXXX-XXXXX
+            <i className="bi bi-telephone-fill me-2"></i>+91-9956236756
           </div>
           <div style={{ color: '#e8e8e8', fontSize: '12px' }}>
-            <i className="bi bi-envelope-fill me-2"></i>info@itinstitute.com
+            <i className="bi bi-envelope-fill me-2"></i>skycodinginstitute@gmail.com
           </div>
         </div>
       </div>

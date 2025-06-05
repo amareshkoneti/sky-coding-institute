@@ -11,7 +11,7 @@ exports.sendOTP = async (email, otp) => {
   });
 
   await transporter.sendMail({
-    from: '"Coaching Center" <amareshkoneti@gmail.com>',
+    from: '"Sky Intitute"',
     to: email,
     subject: "Email Verification Code",
     text: `Your verification code is: ${otp}`,

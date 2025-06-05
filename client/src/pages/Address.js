@@ -131,7 +131,7 @@ export default function Address() {
     };
 
     const API = process.env.REACT_APP_BACKEND_URL;
-    
+
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
@@ -295,7 +295,7 @@ export default function Address() {
                             fontFamily: "'Poppins', sans-serif"
                           }}
                         >
-                          IT Computer Institute
+                          SKY CODING INSTITUTE - Gateway to Innovation
                         </h5>
                         <p 
                           className="mb-0"
@@ -305,9 +305,9 @@ export default function Address() {
                             lineHeight: '1.8'
                           }}
                         >
-                          123 Main Street,<br />
-                          Hyderabad, Telangana - 500001<br />
-                          India
+                          Rudamau Tiraha,<br />
+                          Gaura Road Madhoganj Hardoi - 241302<br />
+                          UtterPradesh,India
                         </p>
                       </div>
 
@@ -330,7 +330,7 @@ export default function Address() {
                             </div>
                             <div>
                               <p className="fw-bold mb-1" style={{ color: '#1e3c72' }}>Phone</p>
-                              <p className="mb-0 text-muted">+91 98765 43210</p>
+                              <p className="mb-0 text-muted">+91 99562 36756,<br></br> +91 88404 55574</p>
                             </div>
                           </div>
                         </div>
@@ -354,7 +354,7 @@ export default function Address() {
                             <div>
                               <p className="fw-bold mb-1" style={{ color: '#1e3c72' }}>Email</p>
                               <a
-                                href="mailto:support@itcomputerinstitute.com"
+                                href="mailto:skycodinginstitute@gmail.com"
                                 className="text-decoration-none text-muted"
                                 style={{
                                   transition: 'color 0.3s ease'
@@ -362,7 +362,7 @@ export default function Address() {
                                 onMouseEnter={(e) => e.target.style.color = '#1e3c72'}
                                 onMouseLeave={(e) => e.target.style.color = '#6c757d'}
                               >
-                                support@itcomputerinstitute.com
+                                skycodinginstitute@gmail.com
                               </a>
                             </div>
                             
@@ -379,17 +379,17 @@ export default function Address() {
                             </h4>
                             <div className="d-flex justify-content-center gap-4 flex-wrap">
                               {/* Instagram */}
-                              <a href="https://www.instagram.com/your_profile" target="_blank" rel="noopener noreferrer">
+                              <a href="https://www.instagram.com/skycodinginstitute" target="_blank" rel="noopener noreferrer">
                                 <Instagram color="#E1306C" size={32} />
                               </a>
 
                               {/* LinkedIn */}
-                              <a href="https://www.linkedin.com/in/your_profile" target="_blank" rel="noopener noreferrer">
+                              <a href="https://www.linkedin.com/in/shivam-kumar-techoverflow" target="_blank" rel="noopener noreferrer">
                                 <Linkedin color="#0077b5" size={32} />
                               </a>
 
                               {/* YouTube */}
-                              <a href="https://www.youtube.com/channel/your_channel" target="_blank" rel="noopener noreferrer">
+                              <a href="https://www.youtube.com/@skycoding.institute" target="_blank" rel="noopener noreferrer">
                                 <Youtube color="#FF0000" size={32} />
                               </a>
 
@@ -689,9 +689,10 @@ export default function Address() {
               overflow: 'hidden'
             }}
           >
+            
             <iframe
               title="Our Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.4399210908077!2d80.64486905798911!3d16.503873800567153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fab12587c72b%3A0x20aec0bac504143c!2sParvathaneni%20Brahmayya%20Siddhartha%20college%20of%20Arts%20%26%20Science!5e0!3m2!1sen!2sin!4v1749026288386!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3551.2752024789243!2d80.1258083!3d27.1161406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399e8bac1620719b%3A0x82a3583ffe7d0382!2sSky%20Coding%20Institute!5e0!3m2!1sen!2sin!4v1749118499135!5m2!1sen!2sin"
               width="100%"
               height="400"
               style={{ border: 0 }}
