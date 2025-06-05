@@ -127,7 +127,8 @@ function StudyMaterials() {
   const user = getUserInfo();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/courses")
+    const API = process.env.REACT_APP_BACKEND_URL;
+    fetch(`${API}/api/courses`)
       .then(res => res.json())
       .then(data => setCourses(data))
       .catch(err => console.error("Error fetching courses:", err));

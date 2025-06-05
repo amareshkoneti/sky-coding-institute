@@ -9,7 +9,8 @@ export default function Certificate() {
   const handleRetrieve = async () => {
 
     try {
-      const res = await fetch(`http://localhost:5000/api/certificates/${certificateNumber}`);
+      const API = process.env.REACT_APP_BACKEND_URL;
+      const res = await fetch(`${API}/api/certificates/${certificateNumber}`);
       if (!res.ok) {
         throw new Error('Fetch failed');
       }

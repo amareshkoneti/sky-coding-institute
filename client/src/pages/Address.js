@@ -130,10 +130,12 @@ export default function Address() {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    const API = process.env.REACT_APP_BACKEND_URL;
+    
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-         await axios.post('http://localhost:5000/api/contact', formData);
+         await axios.post(`${API}/api/contact`, formData);
         setMsg("Your query has been sent!");
       } catch (err) {
         setMsg("Failed to send query. Try again later.");

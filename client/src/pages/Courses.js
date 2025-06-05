@@ -129,9 +129,11 @@ function Courses() {
   const [loadingCourseId, setLoadingCourseId] = useState(null);
 
   const user = getUserInfo();
+  const API = process.env.REACT_APP_BACKEND_URL;
+
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/courses")
+      fetch(`${API}/api/courses`)
       .then(res => res.json())
       .then(data => setCourses(data))
       .catch(err => console.error("Error fetching courses:", err));
@@ -147,7 +149,7 @@ function Courses() {
     setMessage("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/register", {
+      const res = await fetch(`${API}/api/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

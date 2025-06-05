@@ -25,7 +25,10 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/signup", form);
+      const API = process.env.REACT_APP_BACKEND_URL;
+
+      const res = await axios.post(`${API}/api/auth/signup`, form);
+
       setMsg(res.data.msg);
       setError(false);
       setForm({

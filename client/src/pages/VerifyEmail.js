@@ -12,7 +12,10 @@ export default function VerifyEmail() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/verify", { email, otp });
+      const API = process.env.REACT_APP_BACKEND_URL;
+
+      const res = await axios.post(`${API}/api/auth/verify`, {email,otp});
+
       setMsg(res.data.msg);
       setError(false);
       setTimeout(() => navigate("/login"), 1500);

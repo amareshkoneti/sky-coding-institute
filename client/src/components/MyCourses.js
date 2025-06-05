@@ -17,9 +17,9 @@ function MyCourses() {
 
       const user = JSON.parse(userStr);
       const email = encodeURIComponent(user.email);
-
+      const API = process.env.REACT_APP_BACKEND_URL;
       try {
-        const res = await fetch(`http://localhost:5000/api/registrations?email=${email}`, {
+        const res = await fetch(`${API}/api/registrations?email=${email}`, {
           headers: { "Authorization": `Bearer ${token}` }
         });
 
