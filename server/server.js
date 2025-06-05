@@ -6,7 +6,7 @@ const authRoutes = require("./routes/authRoutes");
 const connectDB = require("./config/db");
 const apiRoutes = require("./routes/api");
 const certificateRouter = require('./routes/certificateRoutes');
-
+const pingRouter = require('./routes/ping')
 
 dotenv.config();
 const app = express();
@@ -22,6 +22,8 @@ const contactRoute = require('./routes/contact');
 app.use('/api/contact', contactRoute);
 
 app.use('/api/certificates', certificateRouter);
+
+app.use('/api/ping',pingRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
