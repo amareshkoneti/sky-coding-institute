@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     navigate("/login");
+    setIsMenuOpen(false);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   return (
     <>
-      {/* Top Header with enhanced professional styling */}
+      {/* Top Header - Mobile Optimized */}
       <div 
         className="top-header d-flex justify-content-between align-items-center px-4 py-3"
         style={{
@@ -87,187 +93,93 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Main Navigation with professional styling */}
+      {/* Main Navigation */}
       <nav 
         className="navbar navbar-expand-lg sticky-top"
         style={{ 
           background: 'linear-gradient(90deg, #ffffff 0%, #f8f9fa 100%)',
           boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
-          borderBottom: '1px solid #e9ecef'
+          borderBottom: '1px solid #e9ecef',
+          minHeight: '70px'
         }}
       >
         <div className="container">
+          {/* Mobile Menu Toggle */}
           <button
-            className="navbar-toggler border-0"
+            className="navbar-toggler border-0 ms-auto"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             style={{
               boxShadow: 'none',
-              padding: '8px 12px'
+              padding: '8px 12px',
+              background: isMenuOpen ? '#f8f9fa' : 'transparent'
             }}
           >
             <span 
-              className="navbar-toggler-icon"
               style={{
-                backgroundImage: "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\")"
+                display: 'block',
+                width: '25px',
+                height: '3px',
+                background: '#2c3e50',
+                margin: '5px 0',
+                transition: '0.3s',
+                transform: isMenuOpen ? 'rotate(-45deg) translate(-5px, 6px)' : 'none'
+              }}
+            />
+            <span 
+              style={{
+                display: 'block',
+                width: '25px',
+                height: '3px',
+                background: '#2c3e50',
+                margin: '5px 0',
+                transition: '0.3s',
+                opacity: isMenuOpen ? '0' : '1'
+              }}
+            />
+            <span 
+              style={{
+                display: 'block',
+                width: '25px',
+                height: '3px',
+                background: '#2c3e50',
+                margin: '5px 0',
+                transition: '0.3s',
+                transform: isMenuOpen ? 'rotate(45deg) translate(-5px, -6px)' : 'none'
               }}
             />
           </button>
 
-          <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul className="navbar-nav d-flex gap-3 align-items-center">
-              <li className="nav-item">
-                <Link 
-                  className="nav-link position-relative px-3 py-2 d-flex align-items-center gap-2"
-                  to="/" 
-                  style={{ 
-                    fontSize: "16px",
-                    fontWeight: "600",
-                    color: "#2c3e50",
-                    textDecoration: "none",
-                    transition: "all 0.3s ease",
-                    borderRadius: "25px"
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.color = "#1e3c72";
-                    e.target.style.background = "linear-gradient(45deg, #ffd700, #ffed4e)";
-                    e.target.style.transform = "translateY(-2px)";
-                    e.target.style.boxShadow = "0 4px 12px rgba(255, 215, 0, 0.3)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.color = "#2c3e50";
-                    e.target.style.background = "transparent";
-                    e.target.style.transform = "translateY(0)";
-                    e.target.style.boxShadow = "none";
-                  }}
-                >
-                  <i className="bi bi-house-door-fill"></i> Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link 
-                  className="nav-link position-relative px-3 py-2 d-flex align-items-center gap-2"
-                  to="/gallery" 
-                  style={{ 
-                    fontSize: "16px",
-                    fontWeight: "600",
-                    color: "#2c3e50",
-                    textDecoration: "none",
-                    transition: "all 0.3s ease",
-                    borderRadius: "25px"
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.color = "#1e3c72";
-                    e.target.style.background = "linear-gradient(45deg, #ffd700, #ffed4e)";
-                    e.target.style.transform = "translateY(-2px)";
-                    e.target.style.boxShadow = "0 4px 12px rgba(255, 215, 0, 0.3)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.color = "#2c3e50";
-                    e.target.style.background = "transparent";
-                    e.target.style.transform = "translateY(0)";
-                    e.target.style.boxShadow = "none";
-                  }}
-                >
-                  <i className="bi bi-images"></i> Gallery
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link 
-                  className="nav-link position-relative px-3 py-2 d-flex align-items-center gap-2"
-                  to="/courses" 
-                  style={{ 
-                    fontSize: "16px",
-                    fontWeight: "600",
-                    color: "#2c3e50",
-                    textDecoration: "none",
-                    transition: "all 0.3s ease",
-                    borderRadius: "25px"
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.color = "#1e3c72";
-                    e.target.style.background = "linear-gradient(45deg, #ffd700, #ffed4e)";
-                    e.target.style.transform = "translateY(-2px)";
-                    e.target.style.boxShadow = "0 4px 12px rgba(255, 215, 0, 0.3)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.color = "#2c3e50";
-                    e.target.style.background = "transparent";
-                    e.target.style.transform = "translateY(0)";
-                    e.target.style.boxShadow = "none";
-                  }}
-                >
-                  <i className="bi bi-book-fill"></i> Courses
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link 
-                  className="nav-link position-relative px-3 py-2 d-flex align-items-center gap-2"
-                  to="/about" 
-                  style={{ 
-                    fontSize: "16px",
-                    fontWeight: "600",
-                    color: "#2c3e50",
-                    textDecoration: "none",
-                    transition: "all 0.3s ease",
-                    borderRadius: "25px"
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.color = "#1e3c72";
-                    e.target.style.background = "linear-gradient(45deg, #ffd700, #ffed4e)";
-                    e.target.style.transform = "translateY(-2px)";
-                    e.target.style.boxShadow = "0 4px 12px rgba(255, 215, 0, 0.3)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.color = "#2c3e50";
-                    e.target.style.background = "transparent";
-                    e.target.style.transform = "translateY(0)";
-                    e.target.style.boxShadow = "none";
-                  }}
-                >
-                  <i className="bi bi-info-circle-fill"></i> About Us
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link 
-                  className="nav-link position-relative px-3 py-2 d-flex align-items-center gap-2"
-                  to="/address" 
-                  style={{ 
-                    fontSize: "16px",
-                    fontWeight: "600",
-                    color: "#2c3e50",
-                    textDecoration: "none",
-                    transition: "all 0.3s ease",
-                    borderRadius: "25px"
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.color = "#1e3c72";
-                    e.target.style.background = "linear-gradient(45deg, #ffd700, #ffed4e)";
-                    e.target.style.transform = "translateY(-2px)";
-                    e.target.style.boxShadow = "0 4px 12px rgba(255, 215, 0, 0.3)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.color = "#2c3e50";
-                    e.target.style.background = "transparent";
-                    e.target.style.transform = "translateY(0)";
-                    e.target.style.boxShadow = "none";
-                  }}
-                >
-                  <i className="bi bi-geo-alt-fill"></i> Address
-                </Link>
-              </li>
-              <li>
-                <Link 
-                    className="nav-link position-relative px-3 py-2 d-flex align-items-center gap-2"
-                    to="/verify-certificate"
-                    style={{
-                     fontSize: "16px",
+          {/* Navigation Menu */}
+          <div 
+            className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`}
+            style={{
+              transition: 'all 0.3s ease'
+            }}
+          >
+            <ul className="navbar-nav mx-auto d-flex align-items-center gap-1">
+              {/* Navigation Links */}
+              {[
+                { to: "/", icon: "bi-house-door-fill", text: "Home" },
+                { to: "/gallery", icon: "bi-images", text: "Gallery" },
+                { to: "/courses", icon: "bi-book-fill", text: "Courses" },
+                { to: "/about", icon: "bi-info-circle-fill", text: "About Us" },
+                { to: "/address", icon: "bi-geo-alt-fill", text: "Address" },
+                { to: "/verify-certificate", icon: "bi-award-fill", text: "Verify Certificate" }
+              ].map((item, index) => (
+                <li key={index} className="nav-item">
+                  <Link 
+                    className="nav-link px-3 py-2 d-flex align-items-center gap-2 text-center"
+                    to={item.to}
+                    onClick={closeMenu}
+                    style={{ 
+                      fontSize: "15px",
                       fontWeight: "600",
                       color: "#2c3e50",
                       textDecoration: "none",
                       transition: "all 0.3s ease",
-                      borderRadius: "25px"
+                      borderRadius: "20px",
+                      whiteSpace: "nowrap"
                     }}
                     onMouseEnter={(e) => {
                       e.target.style.color = "#1e3c72";
@@ -282,122 +194,111 @@ function Navbar() {
                       e.target.style.boxShadow = "none";
                     }}
                   >
-                    <i className="bi bi-award-fill"></i> Verify Certificate
+                    <i className={`bi ${item.icon}`}></i> 
+                    <span className="d-lg-inline">{item.text}</span>
                   </Link>
-              </li>
+                </li>
+              ))}
 
+              {/* Authentication Buttons */}
               {!token ? (
-                <>
-                  <li className="nav-item ms-3">
-                    <Link 
-                      className="btn px-4 py-2 d-flex align-items-center gap-2"
-                      to="/signup" 
-                      style={{ 
-                        fontSize: "15px",
-                        fontWeight: "600",
-                        background: "linear-gradient(45deg, #28a745, #20c997)",
-                        color: "white",
-                        border: "none",
-                        borderRadius: "25px",
-                        textDecoration: "none",
-                        transition: "all 0.3s ease",
-                        boxShadow: "0 4px 15px rgba(40, 167, 69, 0.3)"
-                      }}
-                      onMouseEnter={(e) => {
-                        e.target.style.transform = "translateY(-2px)";
-                        e.target.style.boxShadow = "0 6px 20px rgba(40, 167, 69, 0.4)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.target.style.transform = "translateY(0)";
-                        e.target.style.boxShadow = "0 4px 15px rgba(40, 167, 69, 0.3)";
-                      }}
-                    >
-                      <i className="bi bi-person-plus-fill"></i> Sign Up
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link 
-                      className="btn px-4 py-2 d-flex align-items-center gap-2"
-                      to="/login" 
-                      style={{ 
-                        fontSize: "15px",
-                        fontWeight: "600",
-                        background: "linear-gradient(45deg, #dc3545, #e74c3c)",
-                        color: "white",
-                        border: "none",
-                        borderRadius: "25px",
-                        textDecoration: "none",
-                        transition: "all 0.3s ease",
-                        boxShadow: "0 4px 15px rgba(220, 53, 69, 0.3)"
-                      }}
-                      onMouseEnter={(e) => {
-                        e.target.style.transform = "translateY(-2px)";
-                        e.target.style.boxShadow = "0 6px 20px rgba(220, 53, 69, 0.4)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.target.style.transform = "translateY(0)";
-                        e.target.style.boxShadow = "0 4px 15px rgba(220, 53, 69, 0.3)";
-                      }}
-                    >
-                      <i className="bi bi-box-arrow-in-right"></i> Login
-                    </Link>
-                  </li>
-                </>
+                <li className="nav-item d-flex flex-column flex-lg-row gap-2 mt-3 mt-lg-0 ms-lg-3">
+                  <Link 
+                    className="btn px-4 py-2 d-flex align-items-center justify-content-center gap-2"
+                    to="/signup"
+                    onClick={closeMenu}
+                    style={{ 
+                      fontSize: "14px",
+                      fontWeight: "600",
+                      background: "linear-gradient(45deg, #28a745, #20c997)",
+                      color: "white",
+                      border: "none",
+                      borderRadius: "25px",
+                      textDecoration: "none",
+                      transition: "all 0.3s ease",
+                      boxShadow: "0 4px 15px rgba(40, 167, 69, 0.3)",
+                      minWidth: "120px"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.transform = "translateY(-2px)";
+                      e.target.style.boxShadow = "0 6px 20px rgba(40, 167, 69, 0.4)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.transform = "translateY(0)";
+                      e.target.style.boxShadow = "0 4px 15px rgba(40, 167, 69, 0.3)";
+                    }}
+                  >
+                    <i className="bi bi-person-plus-fill"></i> Sign Up
+                  </Link>
+                  <Link 
+                    className="btn px-4 py-2 d-flex align-items-center justify-content-center gap-2"
+                    to="/login"
+                    onClick={closeMenu}
+                    style={{ 
+                      fontSize: "14px",
+                      fontWeight: "600",
+                      background: "linear-gradient(45deg, #dc3545, #e74c3c)",
+                      color: "white",
+                      border: "none",
+                      borderRadius: "25px",
+                      textDecoration: "none",
+                      transition: "all 0.3s ease",
+                      boxShadow: "0 4px 15px rgba(220, 53, 69, 0.3)",
+                      minWidth: "120px"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.transform = "translateY(-2px)";
+                      e.target.style.boxShadow = "0 6px 20px rgba(220, 53, 69, 0.4)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.transform = "translateY(0)";
+                      e.target.style.boxShadow = "0 4px 15px rgba(220, 53, 69, 0.3)";
+                    }}
+                  >
+                    <i className="bi bi-box-arrow-in-right"></i> Login
+                  </Link>
+                </li>
               ) : (
-                <li className="nav-item dropdown ms-3">
+                <li className="nav-item dropdown mt-3 mt-lg-0 ms-lg-3">
                   <button
-                    className="btn dropdown-toggle d-flex align-items-center gap-2 px-4 py-2"
+                    className="btn dropdown-toggle d-flex align-items-center justify-content-center gap-2 px-4 py-2"
                     id="profileDropdown"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                     style={{ 
-                      fontSize: "15px",
+                      fontSize: "14px",
                       fontWeight: "600",
                       background: "linear-gradient(45deg, #6f42c1, #8b5cf6)",
                       color: "white",
                       border: "none",
                       borderRadius: "25px",
                       transition: "all 0.3s ease",
-                      boxShadow: "0 4px 15px rgba(111, 66, 193, 0.3)"
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = "translateY(-2px)";
-                      e.target.style.boxShadow = "0 6px 20px rgba(111, 66, 193, 0.4)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = "translateY(0)";
-                      e.target.style.boxShadow = "0 4px 15px rgba(111, 66, 193, 0.3)";
+                      boxShadow: "0 4px 15px rgba(111, 66, 193, 0.3)",
+                      minWidth: "120px"
                     }}
                   >
-                    <i className="bi bi-person-circle" style={{ fontSize: "18px" }}></i>
+                    <i className="bi bi-person-circle" style={{ fontSize: "16px" }}></i>
                     Profile
                   </button>
                   <ul 
                     className="dropdown-menu dropdown-menu-end border-0"
-                    aria-labelledby="profileDropdown"
                     style={{
                       borderRadius: "15px",
                       boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
                       background: "white",
-                      overflow: "hidden"
+                      overflow: "hidden",
+                      minWidth: "200px"
                     }}
                   >
                     <li>
                       <Link 
                         className="dropdown-item py-3 px-4 d-flex align-items-center gap-2"
                         to="/my-courses"
+                        onClick={closeMenu}
                         style={{
                           fontSize: "14px",
                           fontWeight: "500",
                           transition: "all 0.3s ease"
-                        }}
-                        onMouseEnter={(e) => {
-                          e.target.style.background = "linear-gradient(45deg, #f8f9fa, #e9ecef)";
-                          e.target.style.color = "#1e3c72";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.target.style.background = "transparent";
-                          e.target.style.color = "#495057";
                         }}
                       >
                         <i className="bi bi-journal-bookmark-fill"></i> Registered Courses
@@ -407,24 +308,17 @@ function Navbar() {
                       <Link 
                         className="dropdown-item py-3 px-4 d-flex align-items-center gap-2"
                         to="/study-materials"
+                        onClick={closeMenu}
                         style={{
                           fontSize: "14px",
                           fontWeight: "500",
                           transition: "all 0.3s ease"
                         }}
-                        onMouseEnter={(e) => {
-                          e.target.style.background = "linear-gradient(45deg, #f8f9fa, #e9ecef)";
-                          e.target.style.color = "#1e3c72";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.target.style.background = "transparent";
-                          e.target.style.color = "#495057";
-                        }}
                       >
                         <i className="bi bi-award-fill"></i> Study Materials
                       </Link>
                     </li>
-                    <li><hr className="dropdown-divider m-0" style={{ background: "#dee2e6" }} /></li>
+                    <li><hr className="dropdown-divider m-0" /></li>
                     <li>
                       <button 
                         className="dropdown-item py-3 px-4 text-danger d-flex align-items-center gap-2"
@@ -438,14 +332,6 @@ function Navbar() {
                           width: "100%",
                           textAlign: "left"
                         }}
-                        onMouseEnter={(e) => {
-                          e.target.style.background = "linear-gradient(45deg, #fff5f5, #fed7d7)";
-                          e.target.style.color = "#dc3545";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.target.style.background = "transparent";
-                          e.target.style.color = "#dc3545";
-                        }}
                       >
                         <i className="bi bi-box-arrow-right"></i> Logout
                       </button>
@@ -458,35 +344,63 @@ function Navbar() {
         </div>
       </nav>
 
-      {/* Add custom styles for better responsiveness */}
+      {/* Enhanced Mobile Styles */}
       <style jsx>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
-        @media (max-width: 768px) {
-          .top-header {
-            flex-direction: column !important;
-            text-align: center !important;
-            padding: 1rem !important;
-          }
-          
-          .top-header > div {
-            margin-bottom: 0.5rem;
+        /* Mobile Optimizations */
+        @media (max-width: 991.98px) {
+          .navbar-collapse {
+            background: white;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e9ecef;
           }
           
           .navbar-nav {
-            text-align: center;
-            gap: 0.5rem !important;
+            width: 100%;
           }
           
           .nav-item {
-            margin: 0.25rem 0;
+            width: 100%;
+            margin-bottom: 0.5rem;
           }
           
-          .nav-link, .btn {
+          .nav-link {
+            padding: 0.75rem 1rem !important;
             justify-content: center !important;
+            border-radius: 10px !important;
+            text-align: center;
+          }
+          
+          .btn {
+            width: 100%;
+            margin-bottom: 0.5rem;
+            justify-content: center !important;
+          }
+          
+          .dropdown-menu {
+            position: static !important;
+            float: none !important;
+            width: 100% !important;
+            margin-top: 0.5rem !important;
+            border-radius: 10px !important;
           }
         }
         
+        @media (max-width: 576px) {
+          .top-header {
+            padding: 0.75rem !important;
+          }
+          
+          .container-fluid {
+            padding: 0 !important;
+          }
+        }
+        
+        /* Smooth animations */
         .dropdown-menu {
           animation: fadeInDown 0.3s ease;
         }
@@ -499,6 +413,23 @@ function Navbar() {
           to {
             opacity: 1;
             transform: translateY(0);
+          }
+        }
+        
+        /* Custom hamburger animation */
+        .navbar-toggler:focus {
+          box-shadow: none !important;
+        }
+        
+        /* Ensure proper spacing on all devices */
+        .navbar {
+          padding: 0.5rem 0;
+        }
+        
+        /* Better touch targets for mobile */
+        @media (max-width: 991.98px) {
+          .nav-link, .btn, .dropdown-item {
+            min-height: 44px;
           }
         }
       `}</style>
